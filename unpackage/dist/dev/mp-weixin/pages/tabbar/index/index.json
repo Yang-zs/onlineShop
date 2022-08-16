@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "search-item": "/components/SearchItem/SearchItem",
+    "swipe-item": "/components/SwipeItem/SwipeItem",
+    "gong-ge": "/components/GongGe/GongGe",
+    "scroll-y": "/components/ScrollY/ScrollY"
+  }
+}

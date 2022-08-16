@@ -1,0 +1,1 @@
+<view class="search-area data-v-2d1208e4"><uni-search-bar vue-id="752f94a2-1" placeholder="请输入搜索内容" bgColor="#EEEEEE" data-event-opts="{{[['^confirm',[['search']]]]}}" bind:confirm="__e" class="data-v-2d1208e4" bind:__l="__l"></uni-search-bar></view>
