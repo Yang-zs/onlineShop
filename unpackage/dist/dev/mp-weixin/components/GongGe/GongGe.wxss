@@ -35,4 +35,8 @@
   top: 10rpx;
   right: 30rpx;
 }
+.grid-item-box image.data-v-6c6d3938 {
+  width: 60rpx;
+  height: 60rpx;
+}
 

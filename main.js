@@ -2,7 +2,7 @@
 import Vue from 'vue'
 import App from './App'
 import request from './utils/request'
-
+import './style/iconfont.css'
 Vue.config.productionTip = false
 Vue.prototype.$myRequest = request
 App.mpType = 'app'

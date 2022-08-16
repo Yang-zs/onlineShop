@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3592804 */
+  src: url('iconfont.woff2?t=1660651549392') format('woff2'),
+       url('iconfont.woff?t=1660651549392') format('woff'),
+       url('iconfont.ttf?t=1660651549392') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-jiesuo:before {
+  content: "\e669";
+}
+
+.icon-wodeyingyong:before {
+  content: "\e677";
+}
+
+.icon-yonghu:before {
+  content: "\e624";
+}
+
+.icon-quanbudingdan:before {
+  content: "\e600";
+}
+
+.icon-wodeyouhuiquan:before {
+  content: "\e65a";
+}
+
+.icon-shoucang:before {
+  content: "\e65b";
+}
+
+.icon-xiaoxi:before {
+  content: "\e615";
+}
+
+.icon-diannao:before {
+  content: "\e642";
+}
+
+.icon-diannao1:before {
+  content: "\e75e";
+}
+
+.icon-shoucang1:before {
+  content: "\e666";
+}
+
+.icon-weixin:before {
+  content: "\e620";
+}
+
+.icon-_dingdan:before {
+  content: "\e60a";
+}
+
+.icon-xiaoxi1:before {
+  content: "\e63b";
+}
+
+.icon-kongxinwenhao:before {
+  content: "\ed19";
+}
+
+.icon-bg-application:before {
+  content: "\e64b";
+}
+

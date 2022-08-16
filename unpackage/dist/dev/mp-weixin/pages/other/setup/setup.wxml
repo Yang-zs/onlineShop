@@ -1,0 +1,1 @@
+<view class="data-v-74058a7a"><block wx:for="{{setUpList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="flex align-center justify-between setup-list data-v-74058a7a"><view class="data-v-74058a7a">{{item.title}}</view><view class="{{['data-v-74058a7a',item.class]}}">{{''+item.text}}</view></view></block></view>

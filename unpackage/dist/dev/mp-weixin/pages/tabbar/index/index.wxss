@@ -2,7 +2,7 @@
 /* 水平间距 */
 /* 水平间距 */
 .uniui-home.data-v-6b1f4146 {
-  padding-bottom: 500rpx;
+  padding-bottom: 100rpx;
 }
 .uniui-home.data-v-6b1f4146 {
   background-color: #f7f7f7;
@@ -26,11 +26,12 @@
   overflow: hidden;
 }
 .list-item-img.data-v-6b1f4146 {
-  width: 40%;
+  width: 300rpx;
   margin-right: 35rpx;
 }
-.list-item-img ._img.data-v-6b1f4146 {
+.list-item-img image.data-v-6b1f4146 {
   width: 300rpx;
+  height: 180rpx;
   margin-left: 35rpx;
 }
 .list-title.data-v-6b1f4146 {

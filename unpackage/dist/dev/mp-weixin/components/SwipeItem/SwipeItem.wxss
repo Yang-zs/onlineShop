@@ -1,6 +1,9 @@
 @charset "UTF-8";
 /* 水平间距 */
 /* 水平间距 */
+.uni-swipe.data-v-ec1baac0 {
+  padding: 0 18rpx;
+}
 .uni-margin-wrap.data-v-ec1baac0 {
   width: 690rpx;
   width: 100%;
@@ -17,6 +20,7 @@
 .swiper-item image.data-v-ec1baac0 {
   width: 100%;
   height: 100%;
+  border-radius: 18rpx;
 }
 .swiper-list.data-v-ec1baac0 {
   margin-top: 40rpx;

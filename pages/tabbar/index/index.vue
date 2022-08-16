@@ -38,7 +38,7 @@
 			</view>
 			<view class="new-list-item" v-for="(item,index) in latestList" :key="index">
 				<view class="list-item-img">
-					<img :src="item.cover" alt="">
+					<image :src="item.cover" alt="">
 				</view>
 				<view class="list-item-text">
 					<view class="item-text-title">
@@ -195,12 +195,13 @@
 	}
 
 	.list-item-img {
-		width: 40%;
+		width: 300rpx;
 		margin-right: 35rpx;
 	}
 
-	.list-item-img img {
+	.list-item-img image {
 		width: 300rpx;
+		height: 180rpx;
 		margin-left: 35rpx;
 	}
 

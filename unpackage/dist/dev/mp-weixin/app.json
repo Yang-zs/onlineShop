@@ -3,7 +3,10 @@
     "pages/tabbar/index/index",
     "pages/tabbar/learn/learn",
     "pages/tabbar/mine/mine",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/other/setup/setup",
+    "pages/other/problem/problem",
+    "pages/other/coupon/coupon"
   ],
   "subPackages": [],
   "window": {
@@ -37,6 +40,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.setup-list.data-v-74058a7a {
+  padding: 35rpx 35rpx;
+}
+.text-color.data-v-74058a7a {
+  color: #bfbbbb;
+}
+
