@@ -2,9 +2,11 @@
 import Vue from 'vue'
 import App from './App'
 import request from './utils/request'
+import interceptor from './utils/interceptor'
 import './style/iconfont.css'
 Vue.config.productionTip = false
 Vue.prototype.$myRequest = request
+
 App.mpType = 'app'
 
 const app = new Vue({

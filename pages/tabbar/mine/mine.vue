@@ -7,9 +7,13 @@
 					头像
 					<!-- <image src="" mode=""></image> -->
 				</view>
-				<view class="portrait-right" @click="goLogin">
+				<view v-if="!userInfo.token" class="portrait-right" @click="goLogin">
 					<view>立即登录</view>
 					<view style="font-size: 24rpx;margin-top: 15rpx; ">登录解锁多功能</view>
+				</view>
+				<view v-else class="portrait-right">
+					<view>{{userInfo.username}}</view>
+					<view style="font-size: 24rpx;margin-top: 15rpx; ">暂无描述</view>
 				</view>
 			</view>
 			<!-- 导航 -->
@@ -38,6 +42,7 @@
 	export default {
 		data() {
 			return {
+				userInfo: {},
 				// 导航
 				navList: [{
 						icon: 'iconfont icon-quanbudingdan',
@@ -61,7 +66,7 @@
 						icon: 'iconfont icon-wodeyouhuiquan icons',
 						text: '我的优惠券',
 						arrow: '＞',
-						path: '/pages/other/setup/setup'
+						path: '/pages/other/coupon/coupon'
 					},
 					{
 						icon: 'iconfont icon-kongxinwenhao icons',
@@ -73,21 +78,28 @@
 						icon: 'iconfont icon-wodeyingyong icons',
 						text: '设置',
 						arrow: '＞',
-						path: '/pages/other/coupon/coupon'
+						path: '/pages/other/setup/setup'
 					},
 				]
 			}
 		},
-		created() {
-			console.log(this.$myRequest, 'this')
+		onShow() {
+			this.userInfo = uni.getStorageSync('userInfo')
 		},
-
+		onLoad() {
+			this.userInfo = uni.getStorageSync('userInfo')
+			console.log(this.userInfo);
+		},
+		computed: {},
 		methods: {
+			// 登录成功后获取用户信息
+			// 点击跳转到登录
 			goLogin() {
 				uni.navigateTo({
 					url: '/pages/login/login'
 				})
 			},
+			// 点击列表跳转到相应路径
 			goPath(path) {
 				console.log(path, '路径');
 				uni.navigateTo({

@@ -1,5 +1,6 @@
 <template>
 	<view class="uniui-home">
+		<index-skeleton v-if="!loadingStatus"></index-skeleton>
 		<!-- 搜索 -->
 		<SearchItem></SearchItem>
 		<!-- 轮播图 -->
@@ -70,15 +71,20 @@
 			</view>
 		</view> -->
 		<view class="bottom-img">
-			<image src="../../../static/demo/cover/3.png" mode="widthFix"></image>
+			<image src="../../../static/demo/cover/1.png" mode="widthFix"></image>
 		</view>
 	</view>
 </template>
 
 <script>
+	import indexSkeleton from "@/pages/tabbar/index/index-skeleton.vue"
 	export default {
+		components: {
+			indexSkeleton
+		},
 		data() {
 			return {
+				loadingStatus: false,
 				// 轮播图
 				swiperList: [],
 				// 分类
@@ -90,16 +96,30 @@
 				page: 1,
 				num: 0,
 				// 最新列表
-				latestList: []
-
+				latestList: [],
+				firstLoading: false
 			}
 		},
 		created() {
-			this.getSwiper()
-			this.getCouponList()
-			this.getDoughList()
+			// this.getSwiper()
+			// this.getCouponList()
+			// this.getDoughList()
+			// this.loadRequest()
 		},
+
 		methods: {
+			async loadRequest() {
+				try {
+					await this.getSwiper()
+					await this.getCouponList()
+					await this.getDoughList()
+					this.loadingStatus = true
+					uni.stopPullDownRefresh()
+				} catch (err) {
+					uni.stopPullDownRefresh()
+				}
+
+			},
 			// 获取首页数据
 			async getSwiper() {
 				const {
@@ -130,6 +150,12 @@
 			},
 			// 拼团
 			async getDoughList() {
+				if (this.firstLoading) {
+					uni.showLoading({
+						title: '加载中'
+					})
+				}
+				this.firstLoading = true
 				const {
 					data: {
 						count,
@@ -144,6 +170,7 @@
 				})
 				this.num = count
 				this.doughList = [...this.doughList, ...rows]
+				uni.hideLoading()
 				// console.log(rows, count, 'group')
 			},
 			handlerChangeCurrent() {
@@ -153,12 +180,12 @@
 				this.getDoughList()
 			}
 		},
-		async onPullDownRefresh() {
-			await this.getSwiper()
-			await this.getCouponList()
-			await this.getDoughList()
-			uni.stopPullDownRefresh()
-		}
+		onPullDownRefresh() {
+			this.loadRequest()
+		},
+		onLoad() {
+			this.loadRequest()
+		},
 	}
 </script>
 
@@ -184,7 +211,6 @@
 
 	.list-item-text {
 		padding-left: 35rpx;
-
 
 		.item-text-title {
 			width: 90%;

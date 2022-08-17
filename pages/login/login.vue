@@ -49,7 +49,7 @@
 				check: false,
 				// 表单数据
 				formData: {
-					username: 'ceshi22',
+					username: 'yzs666',
 					password: '123456',
 					repassword: '',
 				},
@@ -82,12 +82,14 @@
 				}
 			}
 		},
-		created() {},
+
 
 		methods: {
+			// // 单选框 协议
 			changeCheck() {
 				this.check = !this.check
 			},
+			//  点击登录按钮
 			submit() {
 				this.$refs.form.validate().then(res => {
 					if (!this.check) {
@@ -117,6 +119,7 @@
 					console.log('表单错误信息：', err);
 				})
 			},
+			// 调用登录接口
 			async handleLogin() {
 				const res = await this.$myRequest.request({
 					url: '/login',
@@ -127,7 +130,19 @@
 					method: 'POST'
 				})
 				console.log(res, '登录')
+				if (res.code !== 20000) return
+				uni.setStorageSync('userInfo', res.data)
+				if (res.data.phone) {
+					uni.switchTab({
+						url: '/pages/tabbar/mine/mine'
+					})
+				} else {
+					uni.navigateTo({
+						url: '/pages/login/mobile/mobile'
+					})
+				}
 			},
+			// 调用注册接口
 			async handleRegister() {
 				const {
 					code,
