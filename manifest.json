@@ -95,6 +95,11 @@
 	},
 	"vueVersion": "2",
 	"h5": {
-		"title": "uni-App"
+		"title": "uni-App",
+		"optimization": {
+			"treeShaking": {
+				"enable": false
+			}
+		}
 	}
 }

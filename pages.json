@@ -65,8 +65,25 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "pages/productDetails/productDetails",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	],
+
+	    ,{
+            "path" : "pages/tabbar/index/test-list/test-list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"tabBar": {
 		"color": "#BBBAC7",
 		"selectedColor": "#2C2C2C",

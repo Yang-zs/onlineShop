@@ -3,7 +3,7 @@
 		<uni-section title="" type="line" padding>
 			<uni-grid :column="4" :showBorder='false' :highlight="true">
 				<uni-grid-item v-for="(item, index) in gongGeList" :index="index" :key="index">
-					<view class="grid-item-box" style="background-color: #fff;">
+					<view class="grid-item-box" style="background-color: #fff;" @click="goPath(index)">
 						<image :src="item.src" mode=""></image>
 						<text class="text">{{item.name}}</text>
 					</view>
@@ -21,12 +21,29 @@
 				default: () => []
 			}
 		},
-		mounted() {
-			// console.log(this.gongGeList, '宫格icon')
-		},
 		data() {
 			return {
+				pathList: [{
+						path: '/pages/tabbar/index/test-list',
 
+					},
+					{
+						path: '/pages/tabbar/index/test-list/test-list',
+
+					},
+				]
+			}
+		},
+		methods: {
+			goPath(dex) {
+				this.pathList.forEach((item, index) => {
+					if (index === dex) {
+						// console.log(item, '2');
+						uni.navigateTo({
+							url: item.path
+						})
+					}
+				})
 			}
 		}
 	}

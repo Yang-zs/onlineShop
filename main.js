@@ -1,6 +1,7 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
+import store from './store'
 import request from './utils/request'
 import interceptor from './utils/interceptor'
 import './style/iconfont.css'
@@ -10,6 +11,7 @@ Vue.prototype.$myRequest = request
 App.mpType = 'app'
 
 const app = new Vue({
+	store,
 	...App
 })
 app.$mount()

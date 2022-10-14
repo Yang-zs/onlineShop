@@ -118,7 +118,6 @@
 				} catch (err) {
 					uni.stopPullDownRefresh()
 				}
-
 			},
 			// 获取首页数据
 			async getSwiper() {
@@ -134,7 +133,7 @@
 				this.gongGeList = data.find(item => item.type === 'icons').data
 				// 最新列表
 				this.latestList = data.find(item => item.type === 'list').data
-				console.log(data, 'data')
+				// console.log(data, 'data')
 
 			},
 			// 优惠券

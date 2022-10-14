@@ -27,6 +27,7 @@ const request = (options) => {
 				// 返回错误消息
 				console.log(err, 'err')
 				reject(err)
+
 			},
 			complete() {
 				// uni.hideLoading()

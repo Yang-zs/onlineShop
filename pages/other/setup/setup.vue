@@ -4,6 +4,9 @@
 			<view>{{item.title}}</view>
 			<view :class="item.class"> {{item.text}}</view>
 		</view>
+		<view class="btn-box">
+			<button @click="submit" class="logout-btn">退出登录</button>
+		</view>
 	</view>
 </template>
 
@@ -32,6 +35,38 @@
 
 				]
 			};
+		},
+		methods: {
+			async submit() {
+				uni.showModal({
+					content: '是否要退出登录',
+					success: (res) => {
+						if (res.confirm) {
+							this.logOut()
+						} else if (res.cancel) {
+							console.log('用户点击取消');
+						}
+					}
+				});
+			},
+			async logOut() {
+				const {
+					code
+				} = await this.$myRequest.request({
+					url: '/logout',
+					method: 'POST'
+				})
+				console.log(code, '退出登录状态');
+				if (code === 20000) {
+					uni.clearStorage();
+					uni.showToast({
+						title: "退出成功",
+						icon: 'none'
+					})
+				}
+
+			}
+
 		}
 	}
 </script>
@@ -43,5 +78,20 @@
 
 	.text-color {
 		color: #bfbbbb;
+	}
+
+	.btn-box {
+		padding: 35rpx;
+
+		.logout-btn {
+			background-color: #00cb86;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #fff;
+			border-radius: 5px;
+		}
+
 	}
 </style>

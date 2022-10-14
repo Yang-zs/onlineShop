@@ -97,6 +97,7 @@
 					},
 					method: 'POST'
 				})
+
 				this.codeshortMessage = data
 				console.log(data, '验证码');
 				if (code === 20000) {
@@ -118,9 +119,7 @@
 			// 点击绑定
 			async submit() {
 				if (this.codeshortMessage) {
-					const {
-						code
-					} = await this.$myRequest.request({
+					const res = await this.$myRequest.request({
 						url: '/bind_mobile',
 						data: {
 							phone: this.formData.phone,
@@ -128,21 +127,28 @@
 						},
 						method: 'POST'
 					})
-					console.log(code);
-					if (code === 20000) {
+					console.log(res, '11');
+					console.log(res.data, '	res.data');
+					if (res.code === 20000) {
 						uni.showToast({
 							title: '绑定成功',
 							icon: 'none'
 						})
+						uni.switchTab({
+							url: '/pages/tabbar/mine/mine'
+						})
+						// this.handleLogin()
 					} else {
-						return
+						uni.showToast({
+							title: res.data,
+							icon: 'none'
+						})
 					}
-					uni.switchTab({
-						url: '/pages/tabbar/mine/mine'
-					})
+
 
 				}
 			},
+
 		}
 	}
 </script>

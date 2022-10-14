@@ -5,7 +5,7 @@
 				:duration="duration">
 				<swiper-item v-for="(item,index) in swiperList" :key="index">
 					<view class="swiper-item uni-bg-red">
-						<image :src="item.src"></image>
+						<image :src="item.src" @click="goDetail(item)"></image>
 					</view>
 				</swiper-item>
 
@@ -33,7 +33,12 @@
 		},
 		created() {},
 		methods: {
-
+			goDetail(item) {
+				// console.log(item, '点击轮播图')
+				uni.navigateTo({
+					url: `/pages/productDetails/productDetails?data=${item.src}&id=${item.course_id}&title=${item.course_title}&type=${item.type}`,
+				})
+			}
 		}
 	}
 </script>

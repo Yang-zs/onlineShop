@@ -1,6 +1,6 @@
 <template>
-	<view class="flex align-center justify-center" style="margin-top: 35rpx;color: gray; ">
-		没有更多数据了
+	<view>
+		考试
 	</view>
 </template>
 

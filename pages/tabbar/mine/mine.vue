@@ -3,7 +3,7 @@
 		<view class="login-header">
 			<!-- 头像 -->
 			<view class="head-portrait">
-				<view class="portrait-left" @click="goLogin">
+				<view class="portrait-left">
 					头像
 					<!-- <image src="" mode=""></image> -->
 				</view>
@@ -42,6 +42,7 @@
 	export default {
 		data() {
 			return {
+				token: null,
 				userInfo: {},
 				// 导航
 				navList: [{
@@ -89,8 +90,11 @@
 		onLoad() {
 			this.userInfo = uni.getStorageSync('userInfo')
 			console.log(this.userInfo);
+			this.token = uni.getStorageSync('token')
 		},
-		computed: {},
+		computed: {
+
+		},
 		methods: {
 			// 登录成功后获取用户信息
 			// 点击跳转到登录
@@ -102,9 +106,15 @@
 			// 点击列表跳转到相应路径
 			goPath(path) {
 				console.log(path, '路径');
-				uni.navigateTo({
-					url: path
-				})
+				if (this.userInfo.token) {
+					uni.navigateTo({
+						url: path
+					})
+				} else {
+					uni.navigateTo({
+						url: '/pages/login/mobile/mobile'
+					})
+				}
 			}
 
 		}

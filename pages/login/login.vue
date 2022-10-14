@@ -3,7 +3,7 @@
 		<view class="top-ound"></view>
 		<!-- 表单 -->
 		<view class="login-form">
-			<view class="login-title" style="font-size: 44rpx;color: #35404b; ">{{selectRegister ? '注册	' : '登录'}}</view>
+			<view class="login-title" style="font-size: 44rpx;color: #35404b; ">{{selectRegister ? '注册' : '登录'}}</view>
 			<uni-forms ref="form" :modelValue="formData" :rules="rules">
 				<view class="uni-form-item uni-column inp-user">
 					<input class="uni-input" v-model="formData.username" focus placeholder="请输入用户名"
@@ -24,8 +24,7 @@
 		</view>
 		<!-- bottom -->
 		<view class="register">
-			<text style="color: #39cb86;"
-				@click="selectRegister=!selectRegister">{{selectRegister ? '去登录' : '注册账号'}}</text>
+			<text style="color: #39cb86;" @click="select">{{selectRegister ? '去登录' : '注册账号'}}</text>
 			<text style="color: #aaa5a9;">忘记密码？</text>
 		</view>
 		<view class="weixin-box">
@@ -85,6 +84,11 @@
 
 
 		methods: {
+			select() {
+				this.selectRegister = !this.selectRegister
+				this.formData.password = ''
+				this.formData.username = ''
+			},
 			// // 单选框 协议
 			changeCheck() {
 				this.check = !this.check
@@ -131,7 +135,12 @@
 				})
 				console.log(res, '登录')
 				if (res.code !== 20000) return
-				uni.setStorageSync('userInfo', res.data)
+				if (res.data.phone === null) {
+					uni.setStorageSync('username', this.formData.username)
+					uni.setStorageSync('password', this.formData.password)
+				}
+				this.$store.dispatch('setUser', res.data)
+				uni.setStorageSync('token', res.data.token)
 				if (res.data.phone) {
 					uni.switchTab({
 						url: '/pages/tabbar/mine/mine'
